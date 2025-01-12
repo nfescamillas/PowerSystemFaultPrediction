@@ -21,7 +21,7 @@ The datasets were imported to a Jupyter Notebook were the data preparation to mo
 
 The project was first tested on the a local deployment through the used of Flask and Docker. A virtual environment was created to isolate the dependencies and as a reference for the dockerfile image. The predict.py file contains the Flask Application and the test_flask.py contains an instance to test the deployment. The code for docker in local deployment is found below: 
 
-'''bash 
+```bash
 
 FROM python:3.10
 
@@ -40,14 +40,16 @@ EXPOSE 9696
 
 ENTRYPOINT ["gunicorn","--bind=0.0.0.0:9696","predict:app"]
 
-'''
+```
 
 Build and run the docker image  using the following commands :
 
-'''bash 
+```bash
+
 docker build -t your_image_name:tag . 
 docker run -it --rm -p 9696:9696 your_image_name:tag
-'''
+
+```
 
 
 - CLOUD DEPLOYMENT 
@@ -61,9 +63,12 @@ Next, the docker file was uploaded to Amazon ECR through the used of CLI with th
 
 1. Create repository 
 
-'''bash 
+```bash
+
 aws ecr create-repository --repository-name your_repo_name
-'''
+
+```
+
 
 2. From the output,take note of the repositoryUri 
 
@@ -72,13 +77,16 @@ aws ecr create-repository --repository-name your_repo_name
 
 3. Login to ECR
 
-'''bash
+```bash
+
 aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 0000000000000.dkr.ecr.us-east-1.amazonaws.com
-'''
+
+```
 
 4. Upon successful login , Tag your Docker Image to be uploaded
 
-'''bash
+```bash
+
 CCOUNT=0000000000000
 REGION=us-west-1
 REGISTRY=your_imagename
@@ -87,13 +95,16 @@ TAG=your_tagname
 REMOTE_URI=${PREFIX}:${TAG}
 
 docker tag localdockerimagename:latest ${REMOTE_URI}
-'''
+
+```
 
 5. Push the docker image to ECR 
 
-'''bash
+```bash
+
 docker push ${REMOTE_URI}
-'''
+
+```
 
 
 ### AMAZON LAMBDA
