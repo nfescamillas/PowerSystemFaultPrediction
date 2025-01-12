@@ -17,6 +17,11 @@ The datasets were imported to a Jupyter Notebook were the data preparation to mo
     * knn_model.bin - for binary classification if a fault exists
     * gb_model.bin - for multilabel classification of where is the fault located 
 
+For an overview of the whole project, please see the image below:
+
+![PowerSystemFaultPrediction_Workflow](./images/ML_PowerSystemFault_Workflow.png)
+
+
  - LOCAL DEPLOYMENT
 
 The project was first tested on the a local deployment through the used of Flask and Docker. A virtual environment was created to isolate the dependencies and as a reference for the dockerfile image. The predict.py file contains the Flask Application and the test_flask.py contains an instance to test the deployment. The code for docker in local deployment is found below: 
