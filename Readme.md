@@ -1,16 +1,19 @@
-## POWER SYSTEM FAULT PREDICTION 
+# POWER SYSTEM FAULT PREDICTION 
 
-### Objective
+## Objective
 
 This is a capstone project for the DTC ML Zoomcamp. A cloud deployed  ML project that has the objective of predicting if a fault exists and what type of fault does it belongs to in a simulated power system . The dataset is found on kaggle, for future reference, see the link below:
 
 https://www.kaggle.com/datasets/esathyaprakash/electrical-fault-detection-and-classification
 
-### Project Overview
+## Project Workflow
 
 There are two datasets that has been utilized. The first dataset (./data/electricalfault.csv) was used to determine whether or not a fault exists in a power system  while the second dataset (./data/classfault.csv) was used to classify where the fault is located from the combination of Phase A,B,C and Ground. 
 
-Two models were created for each dataset and applied in cascaded manner , that if the first model determine that fault exist it will call out the second model to point out the location of the fault. 
+Two models were created for each dataset and applied in a cascaded manner , that if the first model determine that fault exist it will call out the second model to point out the location of the fault. To have a sense of how prediction 
+will work , an image is shown below:
+
+![PowerSystemFaultPrediction_Decision_Workflow](./images/ML_PowerSystemFault_Prediction_Decision_Workflow.png)
 
 The datasets were imported to a Jupyter Notebook were the data preparation to modeling was done. From the notebook, two pickled files were generated. 
 
@@ -19,7 +22,7 @@ The datasets were imported to a Jupyter Notebook were the data preparation to mo
 
 For an overview of the whole project, please see the image below:
 
-![PowerSystemFaultPrediction_Workflow](./images/ML_PowerSystemFault_Workflow.png)
+![PowerSystemFaultPrediction_Workflow](./images/ML_PowerSystemFault_Prediction_Workflow.png)
 
 
  - LOCAL DEPLOYMENT
@@ -136,3 +139,15 @@ Add the resource_name to the end of the url to fully utilized the link, as found
 https://**********.execute-api.us-west-1.amazonaws.com/stage_name/resource_name
 
 Reference the test_aws.py for testing the api gateway created.
+
+
+## Project Tools and Technology
+
+* Data Preparation,Analysis and Modeling: Jupyter Notebook- Scikit-Learn, Matplotlib, Seaborn, Numpy 
+* Cloud: Amazon Web Service (AWS) - ECR (Container), Lambda (Serverless) , API- Gateway (Interfacing and    Endpoint)
+* Containerization tools: Docker
+* Dependency Management: Pipenv 
+* Model Deployment: Docker container using Flask Framework 
+* Code Repository: Github
+
+

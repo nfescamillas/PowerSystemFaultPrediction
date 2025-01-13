@@ -1,4 +1,4 @@
-""" Test Data for Deployment """
+""" Test Script for Local Deployment """
 import requests
 
 # Use the url below for running on local

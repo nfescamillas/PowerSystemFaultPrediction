@@ -1,7 +1,11 @@
+""" Test Script for Cloud Deployment """
 import requests
 
 #url = 'http://localhost:8080/2015-03-31/functions/function/invocations'
-url ='https://**********.execute-api.us-west-1.amazonaws.com/stage_name/resource_name'
+### I have changed the url, for data security and protection ,
+### but the format should look like the one below:
+
+url ='https://es4gq6qyt3.execute-api.us-east-1.amazonaws.com/prod/predict'
 
 data = {"data" :{'Ia': -370.802352,
         "Ib":-526.475517, 

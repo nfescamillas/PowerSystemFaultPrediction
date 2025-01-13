@@ -1,3 +1,4 @@
+""" Prediction Script for Local Deployment """
 import pickle
 from flask import Flask
 from flask import request
